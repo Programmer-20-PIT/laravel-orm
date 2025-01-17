@@ -13,4 +13,10 @@ class kecamatan extends Model
         'name',
         'kota_id'
     ];
+    public function kota(){
+        return $this->belongsTo(kota::class);
+    }
+    public function desa(){
+        return $this->hasMany(desa::class);
+    }
 }

@@ -18,7 +18,7 @@ class pondok extends Model
     public function user(){
         return $this->hasMany(user::class);
     }
-    public function detail(){
+    public function alamat_table(){
         return $this->morphOne(alamat_table::class,'alamattable');
     }
 }
