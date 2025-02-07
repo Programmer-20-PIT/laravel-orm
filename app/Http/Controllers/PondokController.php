@@ -14,7 +14,7 @@ class PondokController extends Controller
     public function index()
     {
         $pondok = Pondok::all();
-        return response()->json($pondok);
+        return response()->json($pondok); //respone untuk menangkap $request->format('html') di route
     }
 
     /**
@@ -41,7 +41,7 @@ class PondokController extends Controller
     public function show(string $id)
     {
         $pondok = Pondok::findOrFail($id);
-        
+
         if (!$pondok) {
             return response()->json(['message' => 'Pondok not found'], 900);
         }
@@ -53,6 +53,8 @@ class PondokController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
+    //kalo di postman pakai method PUT untuk update
     public function update(Request $request, string $id)
     {
         $pondok = Pondok::find($id);
