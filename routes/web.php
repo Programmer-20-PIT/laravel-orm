@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.dashboard');
 });
 
-Route::post('/login', function () {
-    return view('login');
+Route::get('/login', function () {
+    return view('pages.login');
 });
 Route::middleware(['auth:sanctum'])->group(function () {
 

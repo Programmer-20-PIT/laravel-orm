@@ -21,7 +21,9 @@ class AuthController extends Controller
                 'password' => 'required'
             ]);
         } catch (ValidationException $e) {
-            return Log::info($e->getMessage());
+            return response()->json([
+                'message'=> 'Email dan Password salah'
+            ]);
         }
 
         $user = User::where('email', $validated['email'])->first();
@@ -39,11 +41,19 @@ class AuthController extends Controller
         Log::info('Checkpoint 2');
 
         return response()->json([
-            'data' => $user,
             'message' => 'Login Berhasil',
             'token' => $token
         ]);
+
     }
 
-    public function logout(Request $request) {}
+    public function logout(Request $request) {
+        $user = $request->user();
+
+        $user->tokens()->delete();
+
+        return response()->json([
+            'message' => $user->name.' berhasil Log out'
+        ]);
+    }
 }
