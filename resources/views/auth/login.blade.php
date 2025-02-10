@@ -118,7 +118,7 @@
                                 <h5 class="font-weight-normal text-muted-transparent">Bali, Indonesia</h5>
                             </div>
                             Photo by <a class="text-light bb" target="_blank"
-                                href="https://unsplash.com/photos/a8lTjWJJgLA">Justin Kauffman</a> on <a
+                                href="https://unsplash.com/photos/black-and-white-laptop-computer-pJaocJrXGFQ">EL Ghifari</a> on <a
                                 class="text-light bb" target="_blank" href="https://unsplash.com">Unsplash</a>
                         </div>
                     </div>
