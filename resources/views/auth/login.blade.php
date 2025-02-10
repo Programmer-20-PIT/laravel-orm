@@ -138,14 +138,14 @@
 
     <!-- JS Libraies -->
 
-    <script>
+     <script>
         // JavaScript buat toggle icon mata dan visibility password
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
 
-        togglePassword.addEventListener('click', function() {
+        togglePassword.addEventListener('click', function () {
             // toggle the type attribute
-            const etyp = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
 
             // toggle the eye / eye slash icon
