@@ -25,7 +25,7 @@
                                 <h4>Total Users</h4>
                             </div>
                             <div class="card-body">
-                                {{$dataAll}}
+                                {{$data->count()}}
                             </div>
                         </div>
                     </div>
@@ -98,12 +98,13 @@
                                         <tr>
                                             <th scope="row">{{$user->id ?? 'No Data'}}</th>
                                             <td>{{$user->name ?? 'No Data'}}</td>
-                                            <td>{{$user->email ?? 'No Data'}}/td>
+                                            <td>{{$user->email ?? 'No Data'}}
 
                                         </tr>
                                     </tbody>
                                     @endforeach
                                 </table>
+
                             </div>
                     </div>
 
@@ -125,4 +126,6 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
+    <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
+
 @endpush
