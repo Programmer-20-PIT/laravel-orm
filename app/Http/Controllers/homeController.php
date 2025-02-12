@@ -9,7 +9,13 @@ use Illuminate\Support\Facades\DB;
 class homeController extends Controller
 {
     public function pondokName(){
-        $data = User::all();
-        return view('pages.dashboard',['data' => $data,]);
+
+            $data =
+            DB::table('users')->orderBy('id', 'desc')
+            ->paginate(10);
+
+            $allData = User::all();
+
+        return view('pages.dashboard',['data' => $data,'allData' => $allData]);
     }
 }

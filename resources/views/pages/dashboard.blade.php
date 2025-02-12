@@ -25,7 +25,7 @@
                                 <h4>Total Users</h4>
                             </div>
                             <div class="card-body">
-                                {{$data->count()}}
+                                {{$allData->count()}}
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,6 @@
                                                         <i class="fas fa-pencil"></i>
                                                     </button>
                                                 </form>
-
                                                     <form action="{{ route('userWeb.destroy', $user->id) }}"
                                                         method="POST" class="d-inline ml-1">
                                                         @csrf
