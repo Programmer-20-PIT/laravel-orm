@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\userWebController;
 
 Route::middleware(['auth'])->group(function () {
 
@@ -24,5 +25,8 @@ Route::middleware(['auth'])->group(function () {
         //     return view('pages.dashboard');
         // });
 
-    Route::get('/',[homeController::class, 'pondokName']);
+    Route::get('/',[homeController::class, 'pondokName'])->name('home');
+
+
+    Route::resource('userWeb', userWebController::class);
 });
