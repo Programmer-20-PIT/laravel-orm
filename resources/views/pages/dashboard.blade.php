@@ -25,7 +25,7 @@
                                 <h4>Total Users</h4>
                             </div>
                             <div class="card-body">
-                                {{$allData->count()}}
+                                {{ $allData->count() }}
                             </div>
                         </div>
                     </div>
@@ -77,60 +77,119 @@
                 </div>
             </div>
 
+            <div class="container mt-5 col-12">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header bg-primary text-white text-center">
+                                <h5>🕌 Jadwal Sholat - {{ $prayerTimes['data']['lokasi'] }} | {{ $prayerTimes['data']['jadwal']['tanggal'] }}</h3>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered text-center">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th>Sholat</th>
+                                            <th>Waktu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>🕓 Imsak</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['imsak'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🌅 Subuh</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['subuh'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><h5>🌞 Terbit</h5></td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['terbit'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🌤️ Dhuha</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['dhuha'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>☀️ Dzuhur</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['dzuhur'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🌇 Ashar</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['ashar'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🌆 Maghrib</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['maghrib'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>🌙 Isya</td>
+                                            <td>{{ $prayerTimes['data']['jadwal']['isya'] }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer text-center bg-light">
+                                <small class="text-muted">Sumber: API Jadwal Sholat</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
 
                 <div class="col-12">
                     <div class="card card-statistic-1">
-                            <div class="card-header">
-                                <h4>Simple</h4>
-                            </div>
-                            <div class="card-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">email</th>
-                                        </tr>
-                                    </thead>
-                                    @foreach ($data as $user )
+                        <div class="card-header">
+                            <h4>Simple</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">email</th>
+                                    </tr>
+                                </thead>
+                                @foreach ($data as $user)
                                     <tbody>
                                         <tr>
-                                            <th scope="row">{{$user->id ?? 'No Data'}}</th>
-                                            <td>{{$user->name ?? 'No Data'}}</td>
-                                            <td>{{$user->email ?? 'No Data'}}</td>
+                                            <th scope="row">{{ $user->id ?? 'No Data' }}</th>
+                                            <td>{{ $user->name ?? 'No Data' }}</td>
+                                            <td>{{ $user->email ?? 'No Data' }}</td>
                                             <td>
-                                                <form action="/"
-                                                    method="POST" class="d-inline ml-1">
+                                                <form action="/" method="POST" class="d-inline ml-1">
                                                     @csrf
                                                     {{-- @method('DELETE') --}}
-                                                    <button type="hidden" value="EDIT" name="_method" class="btn btn-sm btn-primary btn-icon"
-                                                        data-toggle="tooltip" title="Edit">
+                                                    <button type="hidden" value="EDIT" name="_method"
+                                                        class="btn btn-sm btn-primary btn-icon" data-toggle="tooltip"
+                                                        title="Edit">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                         <i class="fas fa-pencil"></i>
                                                     </button>
                                                 </form>
-                                                    <form action="{{ route('userWeb.destroy', $user->id) }}"
-                                                        method="POST" class="d-inline ml-1">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="hidden" value="DELETE" name="_method" class="btn btn-sm btn-danger btn-icon"
-                                                            data-toggle="tooltip" title="Delete">
-                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
-                                                    </form>
+                                                <form action="{{ route('userWeb.destroy', $user->id) }}" method="POST"
+                                                    class="d-inline ml-1">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="hidden" value="DELETE" name="_method"
+                                                        class="btn btn-sm btn-danger btn-icon" data-toggle="tooltip"
+                                                        title="Delete">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
                                             </td>
 
                                         </tr>
                                     </tbody>
-                                    @endforeach
-                                </table>
-                                <div
-                                class="float-right mt-3 mb-3 card-footer page-item disa ">
-                                    {{ $data->withQueryString()->links() }}
-                                </div>
+                                @endforeach
+                            </table>
+                            <div class="float-right mt-3 mb-3 card-footer page-item disa ">
+                                {{ $data->withQueryString()->links() }}
                             </div>
+                        </div>
                     </div>
 
                 </div>
@@ -152,5 +211,4 @@
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/index-0.js') }}"></script>
     <script src="{{ asset('library/selectric/public/jquery.selectric.min.js') }}"></script>
-
 @endpush
