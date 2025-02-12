@@ -12,4 +12,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', action: function () {
         return view('pages.dashboard');
     });
+    Route::get('/user', action: function () {
+        return view('pages.user');
+    });
 });

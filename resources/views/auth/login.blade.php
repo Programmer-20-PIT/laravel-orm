@@ -42,7 +42,7 @@
                         <p class="text-muted">Before you get started, you must login or register if you don't already
                             have an account.</p>
                         <form method="POST"
-                            action="{{ route('auth.login')}}"
+                            action="{{ route('login')}}"
                             class="needs-validation"
                             novalidate="">
                             @csrf
@@ -85,7 +85,7 @@
                                     <input type="checkbox"
                                         name="remember"
                                         class="custom-control-input"
-                                        tabindex="3"└─[09:54]-(^_^)-(96%)-[$]
+                                        tabindex="3"
                                         id="remember-me">
                                     <label class="custom-control-label"
                                         for="remember-me">Remember Me</label>

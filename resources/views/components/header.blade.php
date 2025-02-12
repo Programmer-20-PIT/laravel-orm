@@ -245,7 +245,7 @@
                 <img alt="image"
                     src="{{ asset('img/avatar/avatar-1.png') }}"
                     class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+        <div class="d-sm-none d-lg-inline-block">Hi, {{Auth::user()->name ?? 'Guest'}}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">Logged in 5 min ago</div>
@@ -265,6 +265,15 @@
                 <a href="#"
                     class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <script>
+                    document.querySelector('.dropdown-item.text-danger').addEventListener('click', function(event) {
+                        event.preventDefault();
+                        document.getElementById('logout-form').submit();
+                    });
+                </script>
                 </a>
             </div>
         </li>
